@@ -1,3 +1,5 @@
 <h1>Página de contato</h1>
 
-<a href="/">Voltar para Home</a>
+<p>
+    <a href="/">Voltar para Home</a>
+</p>
