@@ -30,5 +30,24 @@
             @else
                 <p>O nome não é pedro</p>
             @endif
+
+            @for($i = 0; $i < count($arr); $i++)
+                <b><p> {{ $arr[$i] }} - {{ $i + 1}}</p></b>
+                @if($i == 2)
+                    <p>O i é 2</p>
+                @endif
+            @endfor
+            
+    @foreach ($nomes as $nome)
+            <h1><b> {{$nome}} </b></h1>
+    @endforeach
+
+            @php
+                $name = "Aldo";
+                echo $name;
+            @endphp
+            
+
+
     </body>
 </html>
