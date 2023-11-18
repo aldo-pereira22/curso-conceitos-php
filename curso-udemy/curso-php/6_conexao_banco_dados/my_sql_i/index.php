@@ -14,5 +14,25 @@
     $conn = new mysqli($host,$user, $password, $db );
 
 
+    // $sql = "SELECT * FROM itens";
+    // $result = $conn->query($sql);
+    // print_r($result);
 
-    // echo $conn;
+
+    //  CRIAR UMA TABELA
+    // $q = "CREATE TABLE teste(nome VARCHAR(100), sobrenome VARCHAR(100))";
+
+    // $q = "DROP TABLE teste";
+    // $conn->query($q);
+
+    // $conn->close();
+
+
+    $table = "itens";
+    $nome = "Xicara";
+    // $descricao = "É uma Xicara usada na cor rosa";
+
+    $q = "INSERT INTO $table (nome) VALUES ($nome)";
+    
+    $conn->query($q);
+    $conn->close();
