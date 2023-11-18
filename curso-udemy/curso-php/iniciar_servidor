@@ -1,1 +1,4 @@
 php -S localhost:8080
+
+iniciar o banco de dados php_my_sql = docker start php_my_sql
+iniciar o container php_my_admin
