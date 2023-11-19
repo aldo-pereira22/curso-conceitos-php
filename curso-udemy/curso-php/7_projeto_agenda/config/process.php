@@ -6,7 +6,42 @@
     include_once("url.php");
 
 
-    // Retorna um contato
+    $data = $_POST;
+    // MODIFICAÇÕS NO BANCO
+    if(!empty($data)){  
+
+        print_r($_POST);
+
+        // CRIAR CONTATO
+        if($data["type"] === "create"){
+            $name = $data["name"];
+            $phone = $data["phone"];
+            $observations = $data["observations"];     
+            
+            $query = "INSERT INTO contacts (name, phone, observations) VALUES (:name, :phone, :observations) ";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":phone", $phone);
+            $stmt->bindParam(":observations", $observations);
+
+            try{
+
+                $stmt->execute();
+                $_SESSION["msg"] = "Contato criado com Sucesso!";
+            }catch(PDOException $e){
+                //ERRO NA CONEXÂO
+                $error = $e->getMessage();
+                echo "ERRO:  $error";
+            }
+
+
+        }
+        // REDIRECT HOME
+        header("Location:" . $BASE_URL . "../../index.php");
+
+
+    }else {
+            // Retorna um contato
     $id;
     if(!empty($_GET)){
         $id = $_GET["id"];
@@ -16,7 +51,6 @@
         $stmt = $conn->prepare($query);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
-
         $contact = $stmt->fetch();
     }
 
@@ -29,4 +63,7 @@
     $stmt->execute();
 
     $contacts = $stmt->fetchAll();
-    // $conn->close();
+
+    }
+// Fechar conexão
+$conn = null;

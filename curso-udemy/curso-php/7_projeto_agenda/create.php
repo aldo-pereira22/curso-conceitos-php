@@ -18,22 +18,20 @@
         <br>
 
         <div class="form-group">
-            <label for="phone"> Telefone  do contato</label>
-            <input type="text" class="form-control" id="phone" phone="phone" placeholder="Digite o Telefone" required>
+            <label for="name"> Numero de telefone</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="Digite o telefone" required>
         </div>
         <br>
 
 
-        <div class="form-group">
-            <label for="observations"> Observações </label>
-            <textarea type="text" class="form-control" id="observations" observations="observations"
-                placeholder="Digite informações" rows="4" >
-            </textarea>
+         <div class="form-group">
+            <label for="name"> Observações </label>
+            <textarea name="observations" id="observations" rows="4" cols="50" placeholder="Digite informações adicionais" ></textarea>
         </div>
-        <br>
-
-
+        <br> 
+      
         <button type="submit" class="btn btn-primary"> Cadastrar </button>
+    
     </form>
    </div>
 
