@@ -5,11 +5,12 @@
     include_once("connection.php");
     include_once("url.php");
 
+    $contacts = [];
     $query = "SELECT * FROM contacts";
 
-      $stmt = $conn->prepare($query);
+    $stmt = $conn->prepare($query);
     
-     $stmt->execute();
+    $stmt->execute();
 
-     $contacts = $stmt->fetchAll();
-     $conn->close();
+    $contacts = $stmt->fetchAll();
+    // $conn->close();
