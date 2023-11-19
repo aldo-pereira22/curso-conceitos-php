@@ -5,6 +5,22 @@
     include_once("connection.php");
     include_once("url.php");
 
+
+    // Retorna um contato
+    $id;
+    if(!empty($_GET)){
+        $id = $_GET["id"];
+    }
+    if(!empty($id)){
+        $query = "SELECT * FROM contacts WHERE id = :id";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        $contact = $stmt->fetch();
+    }
+
+    // Retorna todos os contatos
     $contacts = [];
     $query = "SELECT * FROM contacts";
 

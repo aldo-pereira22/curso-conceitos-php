@@ -11,6 +11,9 @@
     }
 
 
+    echo  $dirname;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +46,7 @@
             <div>
                 <div>
                     <div class="navbar-nav">
-                        <a class="active nav-link" id="home-link" href="../../index.php">Agendar</a>                       
+                        <a class="active nav-link" id="home-link" href="<?=$BASE_URL ?>">Agendar</a>                       
                         <a class="active nav-link" id="home-link" href="../../create.php"> Adicionar contato</a>
 
                     </div>
