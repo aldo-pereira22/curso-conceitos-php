@@ -1,6 +1,16 @@
 <?php
 
     include_once("config/url.php");
+    include_once("config/connection.php");
+    include_once("config/process.php");
+
+    //limpa a mensagem
+    if(isset($_SESSION['msg'])){
+        $printMsg = $_SESSION['msg'];
+        $_SESSION['msg'] = '';
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -25,9 +35,20 @@
 <body>
     <header>
 
-        <nav class="navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="<?= $BASE_URL ?>7_projeto_agenda">
                 <img src="/img/logo.svg" alt="Agenda">
             </a>
+
+            <div>
+                <div>
+                    <div class="navbar-nav">
+                        <a class="active nav-link" id="home-link" href="../../index.php">Agendar</a>                       
+                        <a class="active nav-link" id="home-link" href="../../create.php"> Adicionar contato</a>
+
+                    </div>
+                </div>
+            </div>
+
         </nav>
     </header>
