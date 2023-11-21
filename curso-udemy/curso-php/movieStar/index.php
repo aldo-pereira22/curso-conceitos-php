@@ -34,9 +34,9 @@
             <form action="" method="GET" id="search-form" class="form-inline my-2 my-lg-0">
                 <input type="text" name="q" id="search" class="form-control mr-sm-2" type="search"
                     placeholder="Buscar Filmes" aria-label="Search">
-                    <button class="btn my-2 my-sm-0" type="submit" >
 
-                    <i class="fas fa-search" ></i>
+                    <button class="btn my-2 my-sm-0" type="submit" >
+                        <i class="fas fa-search" ></i>
                     </button>
             </form>
         <div class="collapse navbar-collapse" id="navbar"> 
@@ -49,12 +49,12 @@
 
         </nav>
     </header>
-    <div id="man-container" class="container-fluid">
+    <div id="main-container" class="container-fluid">
         <h1>Corpo do site</h1>
     </div>
 
     <footer id="footer">
-        <div class="social-container">
+        <div id="social-container">
             <ul>
                 <li>
                     <a href="#"><i class="fab fa-facebook-square" ></i></a>
