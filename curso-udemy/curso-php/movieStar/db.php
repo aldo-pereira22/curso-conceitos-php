@@ -8,7 +8,7 @@
 
     try{
 
-        $conn = new PDO("mysql:host=$host;dbname=$db_name", $db_user, $password);
+        $conn = new PDO("mysql:host=$host;dbname=$db_name", $db_user,  $db_password);
         // Ativar o modo de erros
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

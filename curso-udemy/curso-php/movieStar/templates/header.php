@@ -1,6 +1,8 @@
 <?php
     require_once("globals.php");
     require_once("db.php");
+
+    $flassMessage = [];
 ?>
 
 <!DOCTYPE html>
@@ -40,10 +42,16 @@
         <div class="collapse navbar-collapse" id="navbar"> 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="<?= $BASE_URL ?>/auth.php" class="nav-link"> Entrar / Cadastrar </a>
+                    <a href="<?= $BASE_URL ?>auth.php" class="nav-link"> Entrar / Cadastrar </a>
                 </li>
             </ul>
         </div>
 
         </nav>
     </header>
+
+    <?php if(!empty($flassMessage["msg"])) : ?>    
+        <div class="msg-container">
+            <p class="msg <?$flassMessage['type'] ?>"> <?$flassMessage['msg'] ?> </p>
+        </div>
+    <?php endif; ?>
