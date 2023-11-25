@@ -93,6 +93,7 @@
 #auth-row {
     justify-content: space-evenly;
 }
+
  #login-container h2,
  #register-container h2 {
     text-align: center;
@@ -102,11 +103,11 @@
     padding: 10px;
  }
 
- #login-container form,
+ /* #login-container form,
  #register-container form {
     max-width: 400px;
     margin: 30px auto;
- }
+ } */
 
 
 .card-btn {
@@ -115,6 +116,13 @@
     border: 2px solid #F5C518;
     width: 100%;
 }
+
+.card-btn:hover {
+    background-color: transparent;
+    color: #F5C518;
+    border: #F5C518;
+}
+
 /* Footer */
 #footer {
     background-color: #000;

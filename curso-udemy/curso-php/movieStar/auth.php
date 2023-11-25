@@ -19,7 +19,7 @@
                         <label for="password">Senha:</label>
                         <input type="password" class="form-control" id="password" name="password"  placeholder="Digite sua senha">
                     </div>
-                    <input type="submit" class="btn card-btn" value="Entrar">
+                    <input type="submit" class="card-btn" value="Entrar">
                 </form>
             </div>
             <div class="col-md-4" id="register-container" >
