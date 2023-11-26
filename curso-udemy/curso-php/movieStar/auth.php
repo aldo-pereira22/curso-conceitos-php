@@ -48,7 +48,7 @@
                         <label for="password">Senha:</label>
                         <input type="password" class="form-control" id="password" name="confirmpassword"  placeholder="Confirme sua senha">
                     </div>
-                    <input type="submit" class="btn card-btn" value="Registrar">
+                    <input type="submit" class="card-btn" value="Registrar">
                 </form>
             </div>
         </div>
