@@ -9,7 +9,7 @@
                 <h2>Entrar</h2>
                 <form action="" method="POST">
                     <input type="hidden" name="type" value="login">
-                                        
+
                         <div class="form-group">
                             <label for="email">E-mail:</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu E-mail">
@@ -46,7 +46,11 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Senha:</label>
-                        <input type="password" class="form-control" id="password" name="confirmpassword"  placeholder="Confirme sua senha">
+                        <input type="password" class="form-control" id="password" name="password"  placeholder="Confirme sua senha">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Confirma a senha:</label>
+                        <input type="password" class="form-control" id="confirmpassword" name="confirmpassword"  placeholder="Confirme sua senha">
                     </div>
                     <input type="submit" class="card-btn" value="Registrar">
                 </form>
