@@ -10,21 +10,21 @@
     require_once("db.php");
 
     $message = new Message($BASE_URL);
+    // echo $BASE_URL; exit;
 
     // Verifica o tipo do formulário;
     $type = filter_input(INPUT_POST, "type");
-    
+ 
     
     // Verificação do tipo de formulário
     if($type  === "register"){
-
         $name = filter_input(INPUT_POST, "name");
         $lastname = filter_input(INPUT_POST, "lastname");
         $email = filter_input(INPUT_POST, "email");
         $password = filter_input(INPUT_POST, "password");
         $confirmpassword = filter_input(INPUT_POST, "confirmpassword");
+      
         
-
         // Verificação de dados mínimos
         if($name && $lastname && $email && $password){
 
