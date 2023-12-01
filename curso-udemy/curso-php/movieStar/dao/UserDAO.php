@@ -7,11 +7,13 @@
 
         private $conn;
         private $url;
+        private $message;
 
         public function __construct(PDO $conn, $url){
     
             $this->conn = $conn;
             $this->url = $url;
+            $this->message = new Message($url);
         }
         
         public function builderUser($data){
@@ -44,7 +46,9 @@
 
             $stmt->execute();
 
-
+            if($authUser){
+                $this->setTokenToSession($user->token);
+            }
 
         }
         public function update(User $user){
@@ -57,7 +61,12 @@
 
         }
         public function setTokenToSession($token, $redirect = true) {
-
+            // Salvar token na session
+            $_SESSION["token"] = $token;
+            if($redirect){
+                // Redireciona para o perfil do usuário
+                $this->message->setMessage("Seja Bem vindo!", "success", "editprofile.php");
+            }
         }
         public function authenticateUser($email, $password){
 
