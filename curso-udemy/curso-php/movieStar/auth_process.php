@@ -12,6 +12,7 @@
     $message = new Message($BASE_URL);
     // print_r(filter_input(INPUT_POST, "type")); exit;
     $userDao = new UserDAO($conn, $BASE_URL);
+    
 
    
 
@@ -40,7 +41,22 @@
         
                 // Verificar se o email já está cadastrado;
                 if( $userDao->findByEmail($email) === false ){
-                       
+
+                      $user = new User();
+                      $userToken = $user->generateToken();
+         
+                      $finalPassword = $user->generatePassword($password);
+
+                      $user->name = $name;
+                      $user->lastname = $lastname;
+                      $user->email = $email;
+                      $user->password = $finalPassword;
+                      $user->token = $userToken;
+
+                       $auth = true;
+
+                       $userDao->create($user, $auth);
+
                 }else{
                     $message->setMessage("Email ja cadastrado, tente outro email" , "error", "back");
                 }
