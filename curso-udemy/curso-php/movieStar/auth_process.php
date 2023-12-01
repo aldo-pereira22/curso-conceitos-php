@@ -35,11 +35,12 @@
    
         if($name && $lastname && $email && $password){
 
+          // Verificar se as senhas batem
               if($password ==  $confirmpassword){
-                
+        
                 // Verificar se o email já está cadastrado;
                 if( $userDao->findByEmail($email) === false ){
-                        echo"nenhum User encontrado";
+                       
                 }else{
                     $message->setMessage("Email ja cadastrado, tente outro email" , "error", "back");
                 }

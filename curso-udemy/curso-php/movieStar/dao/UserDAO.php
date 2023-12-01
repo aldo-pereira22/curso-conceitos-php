@@ -2,7 +2,7 @@
 
 
 
-     require_once("models/User.php");
+    require_once("models/User.php");
     class UserDao implements UserDaoInterface {
 
         private $conn;
@@ -30,6 +30,21 @@
 
         }
         public function create(User $user, $authUser = false){
+            $stmt = $this->prepare("INSERT INTO users(
+                name, lastname, email, password, token
+            ) values (
+                :name, :lastname, :email,:password, :token
+            ) ");
+
+            $stmt->bindParam(":name", $user->name);
+            $stmt->bindParam(":lastname", $user->lastname);
+            $stmt->bindParam(":emmail", $user->emmail);
+            $stmt->bindParam(":password", $user->password);
+            $stmt->bindParam(":token", $user->token);
+
+            $stmt->execute();
+
+            
 
         }
         public function update(User $user){
@@ -57,7 +72,6 @@
                 if($stmt->rowCount() > 0){
                     $data = $stmt->fetch();
                     $user = $this->builderUser($data);
-
                     return $user;
                 }else{
                     return false;
