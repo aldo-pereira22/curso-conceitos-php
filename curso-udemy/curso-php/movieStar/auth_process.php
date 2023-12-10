@@ -26,7 +26,7 @@
     
     // Verificação do tipo de formulário
     if($type  === "register"){
-   
+        echo $type;
         $name = filter_input(INPUT_POST, "name");
         $lastname = filter_input(INPUT_POST, "lastname");
         $email = filter_input(INPUT_POST, "email");
@@ -59,6 +59,7 @@
 
                 }else{
                     $message->setMessage("Email ja cadastrado, tente outro email" , "error", "back");
+                    //$message->setMessage("Usuário já cadastrado, tente outro e-mail.", "error", "back");
                 }
 
               }else {

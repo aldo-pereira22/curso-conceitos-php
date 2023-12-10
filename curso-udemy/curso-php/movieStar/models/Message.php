@@ -15,6 +15,7 @@
             if($redirect != "back"){
                 header("Location: $this->url" . $redirect);
             }else {
+                // header("Location: " . $_SERVER["HTTP_REFERER"]);
                 header("Location: " . $_SERVER["HTTP_REFERER"]);
             }
         }

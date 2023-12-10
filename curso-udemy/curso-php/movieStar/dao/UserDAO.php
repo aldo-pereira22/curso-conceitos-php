@@ -7,7 +7,7 @@
 
         private $conn;
         private $url;
-        private $message;
+        private $message;   
 
         public function __construct(PDO $conn, $url){
     
@@ -31,6 +31,7 @@
             return $user;
 
         }
+        
         public function create(User $user, $authUser = false){
             $stmt = $this->conn->prepare("INSERT INTO users(
                 name, lastname, email, password, token
