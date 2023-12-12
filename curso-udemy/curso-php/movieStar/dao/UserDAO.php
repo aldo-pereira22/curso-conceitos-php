@@ -56,9 +56,38 @@
 
         }
         public function findByToken($token){
+            if($token != ""){
+                $stmt = $this->conn->prepare("SELECT * from users WHERE token = :token");
+                $stmt->bindParam(":token", $token);
+                $stmt->execute();
+
+                if($stmt->rowCount() > 0){
+                    $data = $stmt->fetch();
+                    $user = $this->builderUser($data);
+                    return $user;
+                }else{
+
+                    // Redireciona usuário autenticado
+                    $this->message->setMessage("Faça o login", "success", "editprofile.php");
+                    return false;
+                }
+            }else {
+                return false;
+            }
 
         }
         public function verifyToken($protected = false){
+            if(!empty($_SESSION["token"])){
+                // Pega o tokken da Session
+                $token = $_SESSION["token"];
+                $user =$this->findByToken($token)
+                $user = $this->findByToken($token);
+                if($user){
+                    return $user;
+                }
+            }else { 
+                return false;
+            }
 
         }
         public function setTokenToSession($token, $redirect = true) {
