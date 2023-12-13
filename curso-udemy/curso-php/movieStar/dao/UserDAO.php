@@ -80,10 +80,13 @@
             if(!empty($_SESSION["token"])){
                 // Pega o tokken da Session
                 $token = $_SESSION["token"];
-                $user =$this->findByToken($token)
                 $user = $this->findByToken($token);
+                // $user = $this->findByToken($token);
                 if($user){
                     return $user;
+                }else {
+                    // Redireciona o usuário não autenticado
+                    $this->message->setMessage("Faça a autenticação para acessar", "error", "index.php");    
                 }
             }else { 
                 return false;
@@ -121,6 +124,14 @@
         }
         public function findy($id){
 
+        }
+
+        public function destroyToken(){
+            // remove token da sessão
+            $_SESSION["token"] = "";
+
+            // Redirecionar  e apresentar mensagem
+            $this->message("Vc fez logout com sucesso!", "success", "index.php");
         }
         public function changePassword(User $User){
 
