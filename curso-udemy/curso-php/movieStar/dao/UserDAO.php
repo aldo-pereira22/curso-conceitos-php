@@ -76,23 +76,32 @@
             }
 
         }
+
         public function verifyToken($protected = false){
+
             if(!empty($_SESSION["token"])){
+                echo "AQUII";
+                exit;
+            
                 // Pega o tokken da Session
                 $token = $_SESSION["token"];
                 $user = $this->findByToken($token);
                 // $user = $this->findByToken($token);
                 if($user){
                     return $user;
-                }else {
+                }else if($protected) {
                     // Redireciona o usuário não autenticado
                     $this->message->setMessage("Faça a autenticação para acessar", "error", "index.php");    
                 }
-            }else { 
-                return false;
-            }
+            }else if($protected) {
+                    // Redireciona o usuário não autenticado
+                    $this->message->setMessage("Faça a autenticação para acessar", "error", "index.php");    
+                }
 
         }
+
+        
+ 
         public function setTokenToSession($token, $redirect = true) {
             // Salvar token na session
             $_SESSION["token"] = $token;

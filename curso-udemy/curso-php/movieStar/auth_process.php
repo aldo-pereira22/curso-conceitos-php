@@ -37,11 +37,11 @@
         if($name && $lastname && $email && $password){
 
           // Verificar se as senhas batem
-              if($password ==  $confirmpassword){
+              if($password == $confirmpassword){
+
         
                 // Verificar se o email já está cadastrado;
                 if( $userDao->findByEmail($email) === false ){
-
                       $user = new User();
                       $userToken = $user->generateToken();
          
@@ -58,6 +58,7 @@
                        $userDao->create($user, $auth);
 
                 }else{
+                
                     $message->setMessage("Email ja cadastrado, tente outro email" , "error", "back");
                     //$message->setMessage("Usuário já cadastrado, tente outro e-mail.", "error", "back");
                 }
